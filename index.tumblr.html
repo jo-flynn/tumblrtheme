@@ -1,0 +1,67 @@
+<html>
+	<head>
+		<link rel="stylesheet" href="css/reset.css" /> 
+		<link rel="stylesheet" href="css/text.css" /> 
+		<link rel="stylesheet" href="css/960.css" />
+        <link rel="stylesheet" href="css/custom.css" />
+		<title>{Title}{block:PostSummary}: {PostSummary}{/block:PostSummary}</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				
+			});
+		</script>
+	</head>
+	<body>
+		<div id="outer" class="container_12">
+			<div class="grid_2 logo">
+				<img src="img/logo.png" alt="jf" />
+			</div>
+			<div class="grid_5 prefix_5">
+				<ul id="menu">
+					<li><a href="http://joeflynn.net">About</a></li>
+					<li><a href="http://blog.joeflynn.net">Blog</a></li>
+					<li><a href="http://music.joeflynn.net">Music</a></li>
+					<li><a href="mailto:me@joeflynn.net">Contact</a></li>
+				</ul>
+			</div>
+		<!--	<div class="grid_3">
+				<form action="/search" method="get">
+					<input type="search" placeholder="Search…" name="q" value="" size="15"/>
+					<span class="submit"><input type="submit" value="{lang:Search}"/></span>
+				</form>
+			</div>-->
+			<div class="grid_12">
+				<ol id="posts">
+					{block:Posts}
+						<li class ="post" id="post{PostID}">
+							<div class="grid_3 alpha meta">
+								{block:Date}
+									<p>
+										<a title="Link to this post" href="{Permalink}">{12hour}:{Minutes} {CapitalAmPm}</a>
+										{block:NewDayDate}
+											<a title="link to everything posted this day" 
+												href="/day/{Year}/{MonthNumberWithZero}/{DayOfMonthWithZero" 
+												class="day">
+													{DayOfMonth}{DayOfMonthSuffix}
+													<span class="month">{ShortMonth}</span> {Year}
+											</a>
+										{/block:NewDayDate}
+									</p>
+								{/block:Date}
+						
+								{block:NoteCount}
+									<p>
+										{lang:Notes}:
+										<span class="notecount">{NoteCount}</span>
+									</p>			
+								{/block:NoteCount}
+							</div>
+						</li>
+					{/block:Posts}
+				</ol>
+			</div>
+		</div>
+	</body>
+</html>
+

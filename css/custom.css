@@ -1,0 +1,27 @@
+#menu {
+	list-style: none;
+	margin-top:45px;
+}
+
+#menu li {
+	display:inline;
+	font: italic normal 24px Georgia, serif;
+	margin-left:25px;
+}
+
+#menu li a {
+	color:#666;
+	text-decoration:none;
+}
+
+#menu li a:hover {
+	color:#000;
+}
+
+#outer{
+	margin-top:30px;
+}
+
+a {
+	color:#09f;
+}
