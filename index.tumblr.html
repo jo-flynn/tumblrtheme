@@ -1,21 +1,36 @@
 <html>
 	<head>
-		<link rel="stylesheet" href="css/reset.css" /> 
-		<link rel="stylesheet" href="css/text.css" /> 
-		<link rel="stylesheet" href="css/960.css" />
-        <link rel="stylesheet" href="css/custom.css" />
+		<link rel="stylesheet" href="http://joeflynn.net/css/reset.css" /> 
+		<link rel="stylesheet" href="http://joeflynn.net/css/text.css" /> 
+		<link rel="stylesheet" href="http://joeflynn.net/css/960.css" />
+        <link rel="stylesheet" href="http://joeflynn.net/css/custom.css" />
 		<title>{Title}{block:PostSummary}: {PostSummary}{/block:PostSummary}</title>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
 			$(document).ready(function(){
-				
+				//Some setup work, we're doing this in script so it'll just load normally otherwise.
+				$('.meta').hide();
+				$('#posts .omega').addClass('prefix_3');
+
+				$('.post').hover(
+					function(){
+						$(this).find('.meta').fadeIn('400', function(){
+							$(this).closest('.omega').removeClass('prefix_3');
+						});
+					},
+					function(){
+						$(this).find('.meta').fadeOut('400', function(){
+							$(this).closest('.omega').addClass('prefix_3');
+						});
+					}
+				);
 			});
 		</script>
 	</head>
 	<body>
 		<div id="outer" class="container_12">
 			<div class="grid_2 logo">
-				<img src="img/logo.png" alt="jf" />
+				<img src="http://joeflynn.net/img/logo.png" alt="jf" />
 			</div>
 			<div class="grid_5 prefix_5">
 				<ul id="menu">
@@ -35,31 +50,156 @@
 				<ol id="posts">
 					{block:Posts}
 						<li class ="post" id="post{PostID}">
-							<div class="grid_3 alpha meta">
-								{block:Date}
-									<p>
-										<a title="Link to this post" href="{Permalink}">{12hour}:{Minutes} {CapitalAmPm}</a>
-										{block:NewDayDate}
-											<a title="link to everything posted this day" 
-												href="/day/{Year}/{MonthNumberWithZero}/{DayOfMonthWithZero" 
-												class="day">
-													{DayOfMonth}{DayOfMonthSuffix}
-													<span class="month">{ShortMonth}</span> {Year}
-											</a>
-										{/block:NewDayDate}
-									</p>
-								{/block:Date}
-						
-								{block:NoteCount}
-									<p>
-										{lang:Notes}:
-										<span class="notecount">{NoteCount}</span>
-									</p>			
-								{/block:NoteCount}
+							<div class="grid_3 alpha">
+								<div class="meta">
+									{block:Date}
+										<p>
+											<a title="Link to this post" href="{Permalink}">{12hour}:{Minutes} {CapitalAmPm}</a>
+										</p>
+										<p>
+											{block:NewDayDate}
+												<a title="link to everything posted this day" 
+													href="/day/{Year}/{MonthNumberWithZero}/{DayOfMonthWithZero" 
+													class="day">
+														{DayOfMonth}{DayOfMonthSuffix}
+														<span class="month">{ShortMonth}</span> {Year}
+												</a>
+											{/block:NewDayDate}
+										</p>
+									{/block:Date}
+							
+									{block:NoteCount}
+										<p>
+											{lang:Notes}:
+											<span class="notecount">{NoteCount}</span>
+										</p>			
+									{/block:NoteCount}
+								</div>
+							</div>
+							<div class="grid_9 omega">
+								{block:Text}
+									<div class="content text-post">
+										{block:Title}<h1>{Title}</h1>{/block:Title}
+
+										<div class="text">{Body}</div>
+									</div>
+								{/block:Text}
+								
+								{block:Photo}
+								<div class="content photo-post">
+									<div class="photo">
+										{LinkOpenTag}<img src="{PhotoURL-500}" alt="{PhotoAlt}"/>{LinkCloseTag}
+									</div>
+
+									{block:Caption}<div class="caption">{Caption}</div>{/block:Caption}
+								</div>
+								{/block:Photo}
+
+								 {block:Quote}
+									<div class="content quote-post {Length}-quote">
+										<blockquote class="quote">{Quote}</blockquote>
+
+										{block:Source}<div class="source">&mdash;&#8194;{Source}</div>{/block:Source}
+									</div>
+								{/block:Quote}
+
+								{block:Link}
+									<div class="content link-post">
+										<h1 class="link"><a href="{URL}">{Name}</a></h3>
+
+										{block:Description}<div class="caption">{Description}</div>{/block:Description}
+									</div>
+								{/block:Link}
+
+								{block:Chat}
+									<div class="content chat-post">
+										{block:Title}<h1>{Title}</h1>{/block:Title}
+
+										<ol class="chat">
+											{block:Lines}<li class="{Alt} speaker{UserNumber}">
+											{block:Label}<span class="label">{Label}</span>{/block:Label}
+											<span class="line">{Line}</span>
+											</li>{/block:Lines}
+										</ol>
+									</div>
+								{/block:Chat}
+
+								{block:Video}
+									<div class="content video-post">
+										<div class="video">{Video-400}</div>
+
+										{block:Caption}<div class="caption">{Caption}</div>{/block:Caption}
+									</div>
+								{/block:Video}
+
+								{block:Audio}
+									<p class="meta">{lang:Plays}: <span class="plays">{FormattedPlayCount}</span></p>
+										<div class="content audio-post">
+										<div class="audio">{AudioPlayerBlack}</div>
+
+										{block:Caption}<div class="caption">{Caption}</div>{/block:Caption}
+									</div>
+								{/block:Audio}
+
+								<div class="credit">
+									{block:RebloggedFrom}
+										<p class="reblog">
+											{lang:Reblogged from ReblogParentName 2}
+										</p>
+									{/block:RebloggedFrom}
+					            <!-- Put notes here, maybe -->
+								</div>
+
 							</div>
 						</li>
 					{/block:Posts}
 				</ol>
+			</div>
+			<!--
+			<div id="footer" class="grid_12">
+				<div id="pagination">
+					{block:Pagination}
+						{block:Pagination}
+							<p class="back">
+								{block:NextPage}
+									<a href="{NextPage}">{lang:More}</a> &rarr;
+								{/block:NextPage}
+							</p>
+							<p class="forward">
+								{block:PreviousPage}
+									&larr; <a href="{PreviousPage}">{lang:Back}</a>
+								{/block:PreviousPage}
+							</p>
+							<p class="page">
+								{lang:Page CurrentPage of TotalPages}
+							</p>
+						{/block:Pagination}
+
+						{block:PermalinkPagination}
+							{block:PreviousPost}
+								<p class="back">
+									<a href="{PreviousPost}">{lang:Older}</a> &rarr;
+								</p>
+							{/block:PreviousPost}
+							{block:NextPost}
+								<p class="forward">
+								&larr; <a href="{NextPost}">{lang:Newer}</a>
+							{/block:NextPost}</p>
+						{/block:PermalinkPagination}
+
+						{block:DayPagination}
+							{block:PreviousDayPage}<p class="back">
+							<a href="{PreviousDayPage}">{lang:Previous day}</a> &rarr;
+							{/block:PreviousDayPage}</p>
+							{block:NextDayPage}<p class="forward">
+							&larr; <a href="{NextDayPage}">{lang:Next day}</a>
+							</p>{/block:NextDayPage}
+						{/block:DayPagination}
+						</div>
+				</div>
+				<div id="colophon">
+					{lang:Powered by Tumblr 2}, designed by Joe Flynn.	
+				</div> -->
 			</div>
 		</div>
 	</body>

@@ -25,3 +25,24 @@
 a {
 	color:#09f;
 }
+
+#posts .post {
+	list-style:none;
+	margin: 0;
+	clear:both;
+}
+
+.content {
+	margin-bottom:2.5em;
+}
+
+ol {
+	list-style:none;
+}
+
+.meta {
+	text-align:right;
+}
+/*.meta {
+/*	display:none;
+/*}*/
