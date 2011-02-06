@@ -28,12 +28,8 @@ a {
 
 #posts .post {
 	list-style:none;
-	margin: 0;
+	margin: 0 0 2.5em 0;
 	clear:both;
-}
-
-.content {
-	margin-bottom:2.5em;
 }
 
 ol {
