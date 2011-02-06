@@ -50,13 +50,20 @@
 				<ol id="posts">
 					{block:Posts}
 						<li class="post grid_9 prefix_3 alpha omega" id="post{PostID}">
-                            <div class="date">
-                                {block:Date}
+                            {block:Date}
+                                {block:NewDayDate}
+                                <div class="date">
+                                    <p>
+                                        <a title="Link to everything posted this day" href="/day/{Year}/{MonthNumberWithZero}/{DayOfMonthWithZero}">{DayOfMonth}{DayOfMonthSuffix} {ShortMonth} {Year}</a>
+                                    </p>    
+                                </div>
+                                {/block:NewDayDate}
+                                <div class="time">
                                     <p>
                                         <a title="Link to this post" href="{Permalink}">{12hour}:{Minutes} {CapitalAmPm}</a>
                                     </p>
-                                {/block:Date}
-                            </div>
+                                </div>
+                            {/block:Date}
                             {block:Text}
                                 <div class="content text-post">
                                     {block:Title}<h1>{Title}</h1>{/block:Title}

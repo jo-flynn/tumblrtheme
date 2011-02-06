@@ -28,7 +28,7 @@ a {
 
 #posts .post {
 	list-style:none;
-	margin: 0 0 2.5em 0;
+	margin: 0 0 3em 0;
 	clear:both;
 }
 
@@ -39,6 +39,40 @@ ol {
 .meta {
 	text-align:right;
 }
-/*.meta {
-/*	display:none;
-/*}*/
+
+.time {
+    margin:0px;
+    padding: 1px 0 5px 0;
+    line-height:0.8em;
+}
+
+.time a {
+    color:#bbb;
+    /*border-top:5px solid #bbb;*/
+    text-decoration:none;
+}
+.time a:hover {
+    color:#09f;
+    border-color:#09f;
+}
+
+.date {
+    margin:0px;
+    padding-top: 1px;
+    border-top: 1px solid #bbb;
+}
+
+.date p {
+    margin:0;
+}
+
+.date a {
+    color:#bbb;
+    border-top:5px solid #bbb;
+    text-decoration:none;
+}
+
+.date a:hover {
+    color:#09f;
+    border-color:#09f;
+}
