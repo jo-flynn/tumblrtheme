@@ -53,15 +53,15 @@
                             {block:Date}
                                 {block:NewDayDate}
                                 <div class="date">
-                                    <p>
+                                    <h2>
                                         <a title="Link to everything posted this day" href="/day/{Year}/{MonthNumberWithZero}/{DayOfMonthWithZero}">{DayOfMonth}{DayOfMonthSuffix} {ShortMonth} {Year}</a>
-                                    </p>    
+                                    </h2>    
                                 </div>
                                 {/block:NewDayDate}
                                 <div class="time">
-                                    <p>
+                                    <h3>
                                         <a title="Link to this post" href="{Permalink}">{12hour}:{Minutes} {CapitalAmPm}</a>
-                                    </p>
+                                    </h3>
                                 </div>
                             {/block:Date}
                             {block:Text}
@@ -78,7 +78,7 @@
                                     {LinkOpenTag}<img src="{PhotoURL-500}" alt="{PhotoAlt}"/>{LinkCloseTag}
                                 </div>
 
-                                {block:Caption}<div class="caption">{Caption}</div>{/block:Caption}
+                                {block:Caption}<p class="caption">{Caption}</p>{/block:Caption}
                             </div>
                             {/block:Photo}
 
@@ -86,7 +86,7 @@
                                 <div class="content quote-post {Length}-quote">
                                     <blockquote class="quote">{Quote}</blockquote>
 
-                                    {block:Source}<div class="source">&mdash;&#8194;{Source}</div>{/block:Source}
+                                    {block:Source}<p class="source">&mdash;&#8194;{Source}</p>{/block:Source}
                                 </div>
                             {/block:Quote}
 
@@ -113,7 +113,7 @@
 
                             {block:Video}
                                 <div class="content video-post">
-                                    <div class="video">{Video-400}</div>
+                                    <div class="video">{Video-500}</div>
 
                                     {block:Caption}<div class="caption">{Caption}</div>{/block:Caption}
                                 </div>
@@ -129,10 +129,9 @@
                             {/block:Audio}
                             <div class="noteCount">
                                 {block:NoteCount}
-                                    <p>
-                                        {lang:Notes}:
-                                        <span class="notecount">{NoteCount}</span>
-                                    </p>			
+                                    <span>
+                                        {lang:Notes}: {NoteCount}
+                                    </span>			
                                 {/block:NoteCount}
                             </div>
                             <div class="credit">
@@ -147,21 +146,22 @@
 					{/block:Posts}
 				</ol>
 			</div>
-			<!--
-			<div id="footer" class="grid_12">
-				<div id="pagination">
+			
+			<div id="footer" class="container_12">
+				<div class="grid_9 prefix_3" id="pagination">
 					{block:Pagination}
 						{block:Pagination}
-							<p class="back">
-								{block:NextPage}
-									<a href="{NextPage}">{lang:More}</a> &rarr;
-								{/block:NextPage}
-							</p>
-							<p class="forward">
+							<span class="back">
 								{block:PreviousPage}
 									&larr; <a href="{PreviousPage}">{lang:Back}</a>
 								{/block:PreviousPage}
-							</p>
+							</span>
+
+							<span class="forward">
+								{block:NextPage}
+									<a href="{NextPage}">{lang:More}</a> &rarr;
+								{/block:NextPage}
+							</span>
 							<p class="page">
 								{lang:Page CurrentPage of TotalPages}
 							</p>
@@ -169,29 +169,29 @@
 
 						{block:PermalinkPagination}
 							{block:PreviousPost}
-								<p class="back">
+								<span class="back">
 									<a href="{PreviousPost}">{lang:Older}</a> &rarr;
-								</p>
+								</span>
 							{/block:PreviousPost}
 							{block:NextPost}
-								<p class="forward">
+								<span class="forward">
 								&larr; <a href="{NextPost}">{lang:Newer}</a>
-							{/block:NextPost}</p>
+							{/block:NextPost}</span>
 						{/block:PermalinkPagination}
 
 						{block:DayPagination}
-							{block:PreviousDayPage}<p class="back">
+							{block:PreviousDayPage}<span class="back">
 							<a href="{PreviousDayPage}">{lang:Previous day}</a> &rarr;
-							{/block:PreviousDayPage}</p>
-							{block:NextDayPage}<p class="forward">
+							{/block:PreviousDayPage}</span>
+							{block:NextDayPage}<span class="forward">
 							&larr; <a href="{NextDayPage}">{lang:Next day}</a>
-							</p>{/block:NextDayPage}
+							</span>{/block:NextDayPage}
 						{/block:DayPagination}
 						</div>
 				</div>
-				<div id="colophon">
+				<div class="grid_9 prefix_3" id="colophon">
 					{lang:Powered by Tumblr 2}, designed by Joe Flynn.	
-				</div> -->
+				</div> 
 			</div>
 		</div>
 	</body>

@@ -47,7 +47,7 @@ ol {
 }
 
 .time a {
-    color:#bbb;
+    color:#000;
     /*border-top:5px solid #bbb;*/
     text-decoration:none;
 }
@@ -59,20 +59,49 @@ ol {
 .date {
     margin:0px;
     padding-top: 1px;
-    border-top: 1px solid #bbb;
+    border-top: 1px solid #000;
 }
 
-.date p {
+.date h2 {
     margin:0;
 }
 
 .date a {
-    color:#bbb;
-    border-top:5px solid #bbb;
+    color:#000;
+    border-top:5px solid #000;
     text-decoration:none;
+}
+
+blockquote {
+    padding-left: 20px;
 }
 
 .date a:hover {
     color:#09f;
     border-color:#09f;
+}
+
+.reblog, .noteCount {
+    font-size:0.8em;
+}
+
+.quote {
+    font-family: Georgia, serif;
+    font-style: italic;
+}
+
+.video {
+    margin-bottom:20px;
+}
+
+.forward {
+    float:right;
+}
+
+#colophon, .page {
+    text-align:center;
+}
+
+.source {
+    padding-left: 20px;
 }
