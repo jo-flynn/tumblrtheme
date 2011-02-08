@@ -95,11 +95,27 @@ blockquote {
 }
 
 .forward {
-    float:right;
+   text-align:right; 
 }
 
 #colophon, .page {
     text-align:center;
+}
+
+#colophon {
+    margin-top:50px;
+    font-family: Georgia, serif;
+    font-style:italic;
+    margin-bottom: 50px;
+}
+
+#colophon span {
+    border-top: 1px solid #666;
+    padding-top: 30px;
+}
+
+#colophon span a {
+    text-decoration:none;
 }
 
 .source {

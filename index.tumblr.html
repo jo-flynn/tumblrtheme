@@ -6,26 +6,6 @@
         <link rel="stylesheet" href="http://joeflynn.net/css/custom.css" />
 		<title>{Title}{block:PostSummary}: {PostSummary}{/block:PostSummary}</title>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js" type="text/javascript" charset="utf-8"></script>
-		<script type="text/javascript">
-			$(document).ready(function(){
-				//Some setup work, we're doing this in script so it'll just load normally otherwise.
-			//	$('.meta').hide();
-			//	$('#posts .omega').addClass('prefix_3');
-
-				//$('.post').hover(
-				 //   function(){
-				 //   	$(this).find('.meta').fadeIn('400', function(){
-				 //   		$(this).closest('.omega').removeClass('prefix_3');
-				 //   	});
-				 //   },
-				 //   function(){
-				 //   	$(this).find('.meta').fadeOut('400', function(){
-				 //   		$(this).closest('.omega').addClass('prefix_3');
-				 //   	});
-				 //   }
-				//);
-			});
-		</script>
 	</head>
 	<body>
 		<div id="outer" class="container_12">
@@ -149,49 +129,49 @@
 			
 			<div id="footer" class="container_12">
 				<div class="grid_9 prefix_3" id="pagination">
-					{block:Pagination}
 						{block:Pagination}
-							<span class="back">
-								{block:PreviousPage}
+                            {block:PreviousPage}
+							<span class="back grid_2 alpha">
 									&larr; <a href="{PreviousPage}">{lang:Back}</a>
-								{/block:PreviousPage}
 							</span>
-
-							<span class="forward">
-								{block:NextPage}
-									<a href="{NextPage}">{lang:More}</a> &rarr;
-								{/block:NextPage}
-							</span>
-							<p class="page">
+                            {/block:PreviousPage}
+							<p class="page grid_5">
 								{lang:Page CurrentPage of TotalPages}
 							</p>
+                            {block:NextPage}
+                                <span class="forward grid_2 omega">
+                                        <a href="{NextPage}">{lang:More}</a> &rarr;
+                                </span>
+                            {/block:NextPage}
 						{/block:Pagination}
 
 						{block:PermalinkPagination}
 							{block:PreviousPost}
-								<span class="back">
-									<a href="{PreviousPost}">{lang:Older}</a> &rarr;
+								<span class="back grid_2 suffix_5 alpha">
+                                    &larr; <a href="{PreviousPost}">{lang:Older}</a> 
 								</span>
 							{/block:PreviousPost}
 							{block:NextPost}
-								<span class="forward">
-								&larr; <a href="{NextPost}">{lang:Newer}</a>
-							{/block:NextPost}</span>
+								<span class="forward grid_2 omega">
+                                    <a href="{NextPost}">{lang:Newer}</a> &rarr;
+                                </span>
+							{/block:NextPost}
 						{/block:PermalinkPagination}
 
 						{block:DayPagination}
-							{block:PreviousDayPage}<span class="back">
-							<a href="{PreviousDayPage}">{lang:Previous day}</a> &rarr;
-							{/block:PreviousDayPage}</span>
-							{block:NextDayPage}<span class="forward">
-							&larr; <a href="{NextDayPage}">{lang:Next day}</a>
-							</span>{/block:NextDayPage}
+							{block:PreviousDayPage}
+                                <span class="back grid_2 suffix_5 alpha">
+                                 &larr; <a href="{PreviousDayPage}">{lang:Previous day}</a> 
+                                </span>
+							{/block:PreviousDayPage}
+							{block:NextDayPage}
+                                <span class="forward grid_2 omega">
+                                    <a href="{NextDayPage}">{lang:Next day}</a> &rarr;
+                                </span>
+                            {/block:NextDayPage}
 						{/block:DayPagination}
 						</div>
 				</div>
-				<div class="grid_9 prefix_3" id="colophon">
-					{lang:Powered by Tumblr 2}, designed by Joe Flynn.	
-				</div> 
 			</div>
 		</div>
 	</body>
