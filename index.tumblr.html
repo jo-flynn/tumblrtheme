@@ -1,179 +1,199 @@
+<!DOCTYPE html>
 <html>
-	<head>
-		<link rel="stylesheet" href="http://joeflynn.net/css/reset.css" /> 
-		<link rel="stylesheet" href="http://joeflynn.net/css/text.css" /> 
-		<link rel="stylesheet" href="http://joeflynn.net/css/960.css" />
-        <link rel="stylesheet" href="http://joeflynn.net/css/custom.css" />
-		<title>{Title}{block:PostSummary}: {PostSummary}{/block:PostSummary}</title>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js" type="text/javascript" charset="utf-8"></script>
-	</head>
-	<body>
-		<div id="outer" class="container_12">
-			<div class="grid_2 logo">
-				<img src="http://joeflynn.net/img/logo.png" alt="jf" />
-			</div>
-			<div class="grid_5 prefix_5">
-				<ul id="menu">
-					<li><a href="http://joeflynn.net">About</a></li>
-					<li><a href="http://blog.joeflynn.net">Blog</a></li>
-					<li><a href="http://music.joeflynn.net">Music</a></li>
-					<li><a href="mailto:me@joeflynn.net">Contact</a></li>
-				</ul>
-			</div>
-		<!--	<div class="grid_3">
-				<form action="/search" method="get">
-					<input type="search" placeholder="Search…" name="q" value="" size="15"/>
-					<span class="submit"><input type="submit" value="{lang:Search}"/></span>
-				</form>
-			</div>-->
-			<div class="grid_12">
-				<ol id="posts">
-					{block:Posts}
-						<li class="post grid_9 prefix_3 alpha omega" id="post{PostID}">
-                            {block:Date}
-                                {block:NewDayDate}
-                                <div class="date">
-                                    <h1>
-                                        <a title="Link to everything posted this day" href="/day/{Year}/{MonthNumberWithZero}/{DayOfMonthWithZero}">{DayOfMonth}{DayOfMonthSuffix} {ShortMonth} {Year}</a>
-                                    </h1>    
-                                </div>
-                                {/block:NewDayDate}
-                                <div class="time">
-                                    <h2>
-                                        <a title="Link to this post" href="{Permalink}">{12hour}:{Minutes} {CapitalAmPm}</a>
-                                    </h2>
-                                </div>
-                            {/block:Date}
-                            {block:Text}
-                                <div class="content text-post">
-                                    {block:Title}<h3>{Title}</h3>{/block:Title}
+    <head>
+        <script type="text/javascript" src="http://use.typekit.com/apd4emw.js"></script>
+        <!-- Load typekit stuff -->
+        <script type="text/javascript">
+            try{Typekit.load();}catch(e){}
+        </script>
+        <link rel="stylesheet" href="https://s3.amazonaws.com/joeflynn/assets/css/reset.css" /> 
+        <link rel="stylesheet" href="https://s3.amazonaws.com/joeflynn/assets/css/text.css" /> 
+        <link rel="stylesheet" href="https://s3.amazonaws.com/joeflynn/assets/css/960.css" />
+        <link rel="stylesheet" href="https://s3.amazonaws.com/joeflynn/assets/css/custom.css" />
+        <title>{block:PostSummary}{PostSummary} - {/block:PostSummary}{Title} - I build intuitive interfaces.</title>
+    </head>
+    <body>
+        <div id="outer" class="container_12">
+            <header>
+                <div class="grid_2 logo">
+                    <a href="/"><img src="https://s3.amazonaws.com/joeflynn/assets/logo.png" alt="jf" /></a>
+                </div>
+                <nav class="grid_10">
+                    <ul id="menu">
+                        <li><a href="http://joeflynn.net/about">About</a></li>
+                        <li><a href="http://blog.joeflynn.net">Blog</a></li>
+                        <li><a href="http://joeflynn.net/works">Works</a></li>
+                        <li><a href="http://music.joeflynn.net">Music</a></li>
+                        <li><a href="mailto:me@joeflynn.net">Contact</a></li>
+                    </ul>
+                </nav>
+                <!--
+                <div class="grid_3">
+                    <form action="/search" method="get">
+                        <input type="search" placeholder="Search…" name="q" value="" size="15"/>
+                        <span class="submit"><input type="submit" value="{lang:Search}"/></span>
+                    </form>
+                </div>
+                -->
+            </header>
+                <section class="grid_12">
+                    <ol id="posts">
+                        {block:Posts}
+                            <li class="post grid_9 prefix_3 alpha omega" id="post{PostID}">
+                                <article>
+                                    <header>
+                                        {block:Date}
+                                            {block:NewDayDate}
+                                                <h1 class="title">
+                                                    <a title="Link to everything posted this day" href="/day/{Year}/{MonthNumberWithZero}/{DayOfMonthWithZero}">{DayOfMonth}{DayOfMonthSuffix} {ShortMonth} {Year}</a>
+                                                </h1>    
+                                            {/block:NewDayDate}
+                                            <h2 class="thin date">
+                                                <a title="Link to this post" href="{Permalink}">{12hour}:{Minutes} {CapitalAmPm}</a>
+                                            </h2>
+                                        {/block:Date}
+                                    </header>
+                                    {block:Text}
+                                        <div class="content text-post">
+                                            {block:Title}<h3>{Title}</h3>{/block:Title}
 
-                                    <div class="text">{Body}</div>
-                                </div>
-                            {/block:Text}
-                            
-                            {block:Photo}
-                            <div class="content photo-post">
-                                <div class="photo">
-                                    {LinkOpenTag}<img src="{PhotoURL-500}" alt="{PhotoAlt}"/>{LinkCloseTag}
-                                </div>
+                                            <p class="text">{Body}</p>
+                                        </div>
+                                    {/block:Text}
+                                    
+                                    {block:Photo}
+                                        <div class="content photo-post">
+                                            <div class="photo">
+                                                {LinkOpenTag}<img src="{PhotoURL-500}" alt="{PhotoAlt}"/>{LinkCloseTag}
+                                            </div>
 
-                                {block:Caption}<p class="caption">{Caption}</p>{/block:Caption}
+                                            {block:Caption}<p class="caption">{Caption}</p>{/block:Caption}
+                                        </div>
+                                    {/block:Photo}
+
+                                    {block:Quote}
+                                        <div class="content quote-post {Length}-quote">
+                                            <blockquote class="quote">{Quote}</blockquote>
+
+                                            {block:Source}<p class="source">&mdash;&#8194;{Source}</p>{/block:Source}
+                                        </div>
+                                    {/block:Quote}
+
+                                    {block:Link}
+                                        <div class="content link-post">
+                                            <h3 class="link"><a href="{URL}">{Name}</a></h3>
+
+                                            {block:Description}<div class="caption">{Description}</div>{/block:Description}
+                                        </div>
+                                    {/block:Link}
+
+                                    {block:Chat}
+                                        <div class="content chat-post">
+                                            {block:Title}<h1>{Title}</h1>{/block:Title}
+
+                                            <ol class="chat">
+                                                {block:Lines}<li class="{Alt} speaker{UserNumber}">
+                                                {block:Label}<span class="label">{Label}</span>{/block:Label}
+                                                <span class="line">{Line}</span>
+                                                </li>{/block:Lines}
+                                            </ol>
+                                        </div>
+                                    {/block:Chat}
+
+                                    {block:Video}
+                                        <div class="content video-post">
+                                            <div class="video">{Video-500}</div>
+
+                                            {block:Caption}<div class="caption">{Caption}</div>{/block:Caption}
+                                        </div>
+                                    {/block:Video}
+
+                                    {block:Audio}
+                                        <p class="content alpha omega grid_9 audio-post">
+                                            <div class="grid_2 alpha">
+                                                {block:AlbumArt}
+                                                    <img height="140" width="140" src="{AlbumArtURL}" />
+                                                {/block:AlbumArt}
+                                            </div>
+                                            <div class="audio grid_7 omega">
+                                                <p>
+                                                    {AudioPlayerBlack}
+                                                </p>
+                                                {block:Caption}
+                                                    <div>
+                                                        {Caption}
+                                                    </div>
+                                                {/block:Caption} 
+                                                <p>
+                                                    {lang:Plays}: <span class="plays">{FormattedPlayCount}</span>
+                                                </p> 
+                                            </div>                          
+                                        </p>
+                                    {/block:Audio}
+                                    <footer class="noteCount grid_9 alpha omega"><!--
+                                        {block:NoteCount}
+                                            <p>  
+                                                {lang:Notes}: {NoteCount} <br />
+                                        {/block:NoteCount}
+                                        {block:RebloggedFrom}
+                                                {lang:Reblogged from ReblogParentName 2}
+                                             </p>  
+                                        {/block:RebloggedFrom}
+                                    -->
+                                    </footer>
+                                </article>
+                            </li>
+                        {/block:Posts}
+                    </ol>
+                </section>
+                <div class="grid_9 prefix_3" id="pagination">
+                            {block:Pagination}
+                                {block:PreviousPage}
+                                <span class="back">
+                                        &larr; <a href="{PreviousPage}">{lang:Back}</a>
+                                </span>
+                                {/block:PreviousPage}
+                                
+                                {block:NextPage}
+                                    <span class="forward">
+                                            <a href="{NextPage}">{lang:More}</a> &rarr;
+                                    </span>
+                                {/block:NextPage}
+                                <p class="page">
+                                    {lang:Page CurrentPage of TotalPages}
+                                </p>
+                            {/block:Pagination}
+
+                            {block:PermalinkPagination}
+                                {block:PreviousPost}
+                                    <span class="back">
+                                        &larr; <a href="{PreviousPost}">{lang:Older}</a> 
+                                    </span>
+                                {/block:PreviousPost}
+                                {block:NextPost}
+                                    <span class="forward">
+                                        <a href="{NextPost}">{lang:Newer}</a> &rarr;
+                                    </span>
+                                {/block:NextPost}
+                            {/block:PermalinkPagination}
+
+                            {block:DayPagination}
+                                {block:PreviousDayPage}
+                                    <span class="back">
+                                     &larr; <a href="{PreviousDayPage}">{lang:Previous day}</a> 
+                                    </span>
+                                {/block:PreviousDayPage}
+                                {block:NextDayPage}
+                                    <span class="forward">
+                                        <a href="{NextDayPage}">{lang:Next day}</a> &rarr;
+                                    </span>
+                                {/block:NextDayPage}
+                            {/block:DayPagination}
                             </div>
-                            {/block:Photo}
-
-                             {block:Quote}
-                                <div class="content quote-post {Length}-quote">
-                                    <blockquote class="quote">{Quote}</blockquote>
-
-                                    {block:Source}<p class="source">&mdash;&#8194;{Source}</p>{/block:Source}
-                                </div>
-                            {/block:Quote}
-
-                            {block:Link}
-                                <div class="content link-post">
-                                    <h3 class="link"><a href="{URL}">{Name}</a></h3>
-
-                                    {block:Description}<div class="caption">{Description}</div>{/block:Description}
-                                </div>
-                            {/block:Link}
-
-                            {block:Chat}
-                                <div class="content chat-post">
-                                    {block:Title}<h1>{Title}</h1>{/block:Title}
-
-                                    <ol class="chat">
-                                        {block:Lines}<li class="{Alt} speaker{UserNumber}">
-                                        {block:Label}<span class="label">{Label}</span>{/block:Label}
-                                        <span class="line">{Line}</span>
-                                        </li>{/block:Lines}
-                                    </ol>
-                                </div>
-                            {/block:Chat}
-
-                            {block:Video}
-                                <div class="content video-post">
-                                    <div class="video">{Video-500}</div>
-
-                                    {block:Caption}<div class="caption">{Caption}</div>{/block:Caption}
-                                </div>
-                            {/block:Video}
-
-                            {block:Audio}
-                                <p class="meta">{lang:Plays}: <span class="plays">{FormattedPlayCount}</span></p>
-                                    <div class="content audio-post">
-                                    <div class="audio">{AudioPlayerBlack}</div>
-
-                                    {block:Caption}<div class="caption">{Caption}</div>{/block:Caption}
-                                </div>
-                            {/block:Audio}
-                            <div class="noteCount">
-                                {block:NoteCount}
-                                    <span>
-                                        {lang:Notes}: {NoteCount}
-                                    </span>			
-                                {/block:NoteCount}
-                            </div>
-                            <div class="credit">
-                                {block:RebloggedFrom}
-                                    <p class="reblog">
-                                        {lang:Reblogged from ReblogParentName 2}
-                                    </p>
-                                {/block:RebloggedFrom}
-                            <!-- Put notes here, maybe -->
-                            </div>
-						</li>
-					{/block:Posts}
-				</ol>
-			</div>
-			
-			<div id="footer" class="container_12">
-				<div class="grid_9 prefix_3" id="pagination">
-						{block:Pagination}
-                            {block:PreviousPage}
-							<span class="back grid_2 alpha">
-									&larr; <a href="{PreviousPage}">{lang:Back}</a>
-							</span>
-                            {/block:PreviousPage}
-							<p class="page grid_5">
-								{lang:Page CurrentPage of TotalPages}
-							</p>
-                            {block:NextPage}
-                                <span class="forward grid_2 omega">
-                                        <a href="{NextPage}">{lang:More}</a> &rarr;
-                                </span>
-                            {/block:NextPage}
-						{/block:Pagination}
-
-						{block:PermalinkPagination}
-							{block:PreviousPost}
-								<span class="back grid_2 suffix_5 alpha">
-                                    &larr; <a href="{PreviousPost}">{lang:Older}</a> 
-								</span>
-							{/block:PreviousPost}
-							{block:NextPost}
-								<span class="forward grid_2 omega">
-                                    <a href="{NextPost}">{lang:Newer}</a> &rarr;
-                                </span>
-							{/block:NextPost}
-						{/block:PermalinkPagination}
-
-						{block:DayPagination}
-							{block:PreviousDayPage}
-                                <span class="back grid_2 suffix_5 alpha">
-                                 &larr; <a href="{PreviousDayPage}">{lang:Previous day}</a> 
-                                </span>
-							{/block:PreviousDayPage}
-							{block:NextDayPage}
-                                <span class="forward grid_2 omega">
-                                    <a href="{NextDayPage}">{lang:Next day}</a> &rarr;
-                                </span>
-                            {/block:NextDayPage}
-						{/block:DayPagination}
-						</div>
-				</div>
-			</div>
-		</div>
-	</body>
+                    </div>
+                <div id="footer" class="grid_9 prefix_3">
+                    
+                </div>
+            </div>
+    </body>
 </html>
-
