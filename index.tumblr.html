@@ -56,7 +56,6 @@
                                     {block:Text}
                                         <div class="content text-post">
                                             {block:Title}<h3>{Title}</h3>{/block:Title}
-
                                             <p class="text">{Body}</p>
                                         </div>
                                     {/block:Text}
@@ -66,7 +65,6 @@
                                             <div class="photo">
                                                 {LinkOpenTag}<img src="{PhotoURL-500}" alt="{PhotoAlt}"/>{LinkCloseTag}
                                             </div>
-
                                             {block:Caption}<p class="caption">{Caption}</p>{/block:Caption}
                                         </div>
                                     {/block:Photo}
@@ -74,7 +72,6 @@
                                     {block:Quote}
                                         <div class="content quote-post {Length}-quote">
                                             <blockquote class="quote">{Quote}</blockquote>
-
                                             {block:Source}<p class="source">&mdash;&#8194;{Source}</p>{/block:Source}
                                         </div>
                                     {/block:Quote}
@@ -82,7 +79,6 @@
                                     {block:Link}
                                         <div class="content link-post">
                                             <h3 class="link"><a href="{URL}">{Name}</a></h3>
-
                                             {block:Description}<div class="caption">{Description}</div>{/block:Description}
                                         </div>
                                     {/block:Link}
@@ -90,7 +86,6 @@
                                     {block:Chat}
                                         <div class="content chat-post">
                                             {block:Title}<h1>{Title}</h1>{/block:Title}
-
                                             <ol class="chat">
                                                 {block:Lines}<li class="{Alt} speaker{UserNumber}">
                                                 {block:Label}<span class="label">{Label}</span>{/block:Label}
@@ -103,7 +98,6 @@
                                     {block:Video}
                                         <div class="content video-post">
                                             <div class="video">{Video-500}</div>
-
                                             {block:Caption}<div class="caption">{Caption}</div>{/block:Caption}
                                         </div>
                                     {/block:Video}
