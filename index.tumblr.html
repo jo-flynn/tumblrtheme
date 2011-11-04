@@ -11,6 +11,20 @@
         <link rel="stylesheet" href="https://s3.amazonaws.com/joeflynn/assets/css/960.css" />
         <link rel="stylesheet" href="https://s3.amazonaws.com/joeflynn/assets/css/custom.css" />
         <title>{block:PostSummary}{PostSummary} - {/block:PostSummary}{Title} - I build intuitive interfaces.</title>
+        <script type="text/javascript">
+
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-24643581-1']);
+          _gaq.push(['_setDomainName', '.joeflynn.net']);
+          _gaq.push(['_trackPageview']);
+
+          (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+
+        </script>
     </head>
     <body>
         <div id="outer" class="container_12">
@@ -65,7 +79,13 @@
                                             <div class="photo">
                                                 {LinkOpenTag}<img src="{PhotoURL-500}" alt="{PhotoAlt}"/>{LinkCloseTag}
                                             </div>
-                                            {block:Caption}<p class="caption">{Caption}</p>{/block:Caption}
+                                            
+                                            {block:Caption}
+                                                <div class="caption">
+                                                    {Caption}
+                                                </div>
+                                            {/block:Caption}
+                                            
                                         </div>
                                     {/block:Photo}
 
@@ -124,16 +144,21 @@
                                             </div>                          
                                         </p>
                                     {/block:Audio}
-                                    <footer class="noteCount grid_9 alpha omega"><!--
-                                        {block:NoteCount}
-                                            <p>  
-                                                {lang:Notes}: {NoteCount} <br />
-                                        {/block:NoteCount}
-                                        {block:RebloggedFrom}
-                                                {lang:Reblogged from ReblogParentName 2}
-                                             </p>  
-                                        {/block:RebloggedFrom}
-                                    -->
+                                    <footer class="noteCount grid_9 alpha omega">
+                                        {block:ContentSource}
+                                        <div>
+                                            <a href="{SourceURL}">
+                                                {lang:Source}:
+                                                {block:SourceLogo}
+                                                    <img src="{BlackLogoURL}" width="{LogoWidth}"
+                                                    height="{LogoHeight}" alt="{SourceTitle}" />
+                                                {/block:SourceLogo}
+                                                {block:NoSourceLogo}
+                                                    {SourceTitle}
+                                                {/block:NoSourceLogo}
+                                            </a>
+                                        </div>
+                                        {/block:ContentSource}
                                     </footer>
                                 </article>
                             </li>
